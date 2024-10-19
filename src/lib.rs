@@ -167,11 +167,11 @@
 #[macro_export]
 macro_rules! usize {
     ($val:expr $(,)?) => {{
-        const __E: usize = $val;
-        {
-            #[deny(const_err)]
-            const NZ: $crate::_private::NonZeroUsize = $crate::_private::nz_usize(__E);
-            NZ
+        const {
+            match core::num::NonZeroUsize::new($val) {
+                Some(x) => x,
+                None => panic!("Value passed to `usize!` was zero"),
+            }
         }
     }};
 }
@@ -212,11 +212,11 @@ macro_rules! usize {
 #[macro_export]
 macro_rules! isize {
     ($val:expr $(,)?) => {{
-        const __E: isize = $val;
-        {
-            #[deny(const_err)]
-            const NZ: $crate::_private::NonZeroIsize = $crate::_private::nz_isize(__E);
-            NZ
+        const {
+            match core::num::NonZeroIsize::new($val) {
+                Some(x) => x,
+                None => panic!("Value passed to `isize!` was zero"),
+            }
         }
     }};
 }
@@ -257,11 +257,11 @@ macro_rules! isize {
 #[macro_export]
 macro_rules! u8 {
     ($val:expr $(,)?) => {{
-        const __E: u8 = $val;
-        {
-            #[deny(const_err)]
-            const NZ: $crate::_private::NonZeroU8 = $crate::_private::nz_u8(__E);
-            NZ
+        const {
+            match core::num::NonZeroU8::new($val) {
+                Some(x) => x,
+                None => panic!("Value passed to `u8!` was zero"),
+            }
         }
     }};
 }
@@ -302,11 +302,11 @@ macro_rules! u8 {
 #[macro_export]
 macro_rules! i8 {
     ($val:expr $(,)?) => {{
-        const __E: i8 = $val;
-        {
-            #[deny(const_err)]
-            const NZ: $crate::_private::NonZeroI8 = $crate::_private::nz_i8(__E);
-            NZ
+        const {
+            match core::num::NonZeroI8::new($val) {
+                Some(x) => x,
+                None => panic!("Value passed to `i8!` was zero"),
+            }
         }
     }};
 }
@@ -347,11 +347,11 @@ macro_rules! i8 {
 #[macro_export]
 macro_rules! u16 {
     ($val:expr $(,)?) => {{
-        const __E: u16 = $val;
-        {
-            #[deny(const_err)]
-            const NZ: $crate::_private::NonZeroU16 = $crate::_private::nz_u16(__E);
-            NZ
+        const {
+            match core::num::NonZeroU16::new($val) {
+                Some(x) => x,
+                None => panic!("Value passed to `u16!` was zero"),
+            }
         }
     }};
 }
@@ -392,11 +392,11 @@ macro_rules! u16 {
 #[macro_export]
 macro_rules! i16 {
     ($val:expr $(,)?) => {{
-        const __E: i16 = $val;
-        {
-            #[deny(const_err)]
-            const NZ: $crate::_private::NonZeroI16 = $crate::_private::nz_i16(__E);
-            NZ
+        const {
+            match core::num::NonZeroI16::new($val) {
+                Some(x) => x,
+                None => panic!("Value passed to `i16!` was zero"),
+            }
         }
     }};
 }
@@ -437,11 +437,11 @@ macro_rules! i16 {
 #[macro_export]
 macro_rules! u32 {
     ($val:expr $(,)?) => {{
-        const __E: u32 = $val;
-        {
-            #[deny(const_err)]
-            const NZ: $crate::_private::NonZeroU32 = $crate::_private::nz_u32(__E);
-            NZ
+        const {
+            match core::num::NonZeroU32::new($val) {
+                Some(x) => x,
+                None => panic!("Value passed to `u32!` was zero"),
+            }
         }
     }};
 }
@@ -482,11 +482,11 @@ macro_rules! u32 {
 #[macro_export]
 macro_rules! i32 {
     ($val:expr $(,)?) => {{
-        const __E: i32 = $val;
-        {
-            #[deny(const_err)]
-            const NZ: $crate::_private::NonZeroI32 = $crate::_private::nz_i32(__E);
-            NZ
+        const {
+            match core::num::NonZeroI32::new($val) {
+                Some(x) => x,
+                None => panic!("Value passed to `i32!` was zero"),
+            }
         }
     }};
 }
@@ -527,11 +527,11 @@ macro_rules! i32 {
 #[macro_export]
 macro_rules! u64 {
     ($val:expr $(,)?) => {{
-        const __E: u64 = $val;
-        {
-            #[deny(const_err)]
-            const NZ: $crate::_private::NonZeroU64 = $crate::_private::nz_u64(__E);
-            NZ
+        const {
+            match core::num::NonZeroU64::new($val) {
+                Some(x) => x,
+                None => panic!("Value passed to `u64!` was zero"),
+            }
         }
     }};
 }
@@ -572,11 +572,11 @@ macro_rules! u64 {
 #[macro_export]
 macro_rules! i64 {
     ($val:expr $(,)?) => {{
-        const __E: i64 = $val;
-        {
-            #[deny(const_err)]
-            const NZ: $crate::_private::NonZeroI64 = $crate::_private::nz_i64(__E);
-            NZ
+        const {
+            match core::num::NonZeroI64::new($val) {
+                Some(x) => x,
+                None => panic!("Value passed to `i64!` was zero"),
+            }
         }
     }};
 }
@@ -617,11 +617,11 @@ macro_rules! i64 {
 #[macro_export]
 macro_rules! u128 {
     ($val:expr $(,)?) => {{
-        const __E: u128 = $val;
-        {
-            #[deny(const_err)]
-            const NZ: $crate::_private::NonZeroU128 = $crate::_private::nz_u128(__E);
-            NZ
+        const {
+            match core::num::NonZeroU128::new($val) {
+                Some(x) => x,
+                None => panic!("Value passed to `u128!` was zero"),
+            }
         }
     }};
 }
@@ -662,51 +662,11 @@ macro_rules! u128 {
 #[macro_export]
 macro_rules! i128 {
     ($val:expr $(,)?) => {{
-        const __E: i128 = $val;
-        {
-            #[deny(const_err)]
-            const NZ: $crate::_private::NonZeroI128 = $crate::_private::nz_i128(__E);
-            NZ
+        const {
+            match core::num::NonZeroI128::new($val) {
+                Some(x) => x,
+                None => panic!("Value passed to `i128!` was zero"),
+            }
         }
     }};
-}
-
-// Implementation detail — not part of public API.
-#[doc(hidden)]
-pub mod _private {
-    pub use core::num::{
-        NonZeroI128, NonZeroI16, NonZeroI32, NonZeroI64, NonZeroI8, NonZeroIsize, NonZeroU128,
-        NonZeroU16, NonZeroU32, NonZeroU64, NonZeroU8, NonZeroUsize,
-    };
-
-    macro_rules! define_nz_ctor {
-        ($(pub fn $nz_func:ident($n:ident : $int:ident) -> $NonZeroInt:ident;)+) => {$(
-            #[inline]
-            pub const fn $nz_func($n : $int) -> $NonZeroInt {
-                // Note: Hacky const fn assert.
-                let _ = ["N must not be zero"][($n == 0) as usize];
-
-                match $NonZeroInt::new($n) {
-                    Some(x) => x,
-                    // The assert above makes this branch unreachable
-                    None => loop {},
-                }
-            }
-        )+};
-    }
-
-    define_nz_ctor! {
-        pub fn nz_usize(n: usize) -> NonZeroUsize;
-        pub fn nz_isize(n: isize) -> NonZeroIsize;
-        pub fn nz_u8(n: u8) -> NonZeroU8;
-        pub fn nz_i8(n: i8) -> NonZeroI8;
-        pub fn nz_u16(n: u16) -> NonZeroU16;
-        pub fn nz_i16(n: i16) -> NonZeroI16;
-        pub fn nz_u32(n: u32) -> NonZeroU32;
-        pub fn nz_i32(n: i32) -> NonZeroI32;
-        pub fn nz_u64(n: u64) -> NonZeroU64;
-        pub fn nz_i64(n: i64) -> NonZeroI64;
-        pub fn nz_u128(n: u128) -> NonZeroU128;
-        pub fn nz_i128(n: i128) -> NonZeroI128;
-    }
 }
